@@ -53,7 +53,6 @@ class AutoController extends Controller
      */
     public function show(Auto $auto)
     {
-        //$lol = Auto::findOrFail(1);
         return response(view('autos.show', compact(['auto'])));
     }
 

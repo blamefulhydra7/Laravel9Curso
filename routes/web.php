@@ -19,7 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::resource('auto', AutoController::class);
 
 Route::resource('persona', PersonaController::class);
