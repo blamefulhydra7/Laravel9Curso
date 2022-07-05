@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('autos', function (Blueprint $table) {
             $table->id();
-            $table->string('marca')->unique();
-            $table->string('modelo')->unique();
+            $table->string('marca');
+            $table->string('modelo');
             $table->timestamps();
         });
     }

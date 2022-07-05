@@ -65,7 +65,7 @@ class PersonaController extends Controller
      */
     public function edit(Persona $persona)
     {
-        //
+        return response(view('personas.edit', compact('persona')));
     }
 
     /**
@@ -77,7 +77,14 @@ class PersonaController extends Controller
      */
     public function update(UpdatePersonaRequest $request, Persona $persona)
     {
-        //
+        $persona->update($request->validate([
+            'nombre' => 'required|min:3|max:30',
+            'apellidoPaterno' => 'required|min:3|max:15',
+            'apellidoMaterno' => 'required|min:3|max:15',
+            'email' => 'required|email'
+        ]));
+
+        return response(redirect('/persona/' . $persona->id));
     }
 
     /**
@@ -88,6 +95,7 @@ class PersonaController extends Controller
      */
     public function destroy(Persona $persona)
     {
-        //
+        $persona->delete();
+        return response(redirect('/persona'));
     }
 }

@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class AutoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -64,7 +69,7 @@ class AutoController extends Controller
      */
     public function edit(Auto $auto)
     {
-        //
+        return response(view('autos.edit', compact('auto')));
     }
 
     /**
@@ -76,7 +81,12 @@ class AutoController extends Controller
      */
     public function update(UpdateAutoRequest $request, Auto $auto)
     {
-        //
+        $auto->update($request->validate([
+            'marca' => 'required|min:3|max:15',
+            'modelo' => 'required|min:3|max:20'
+        ]));
+
+        return response(redirect('/auto/' . $auto->id));
     }
 
     /**
@@ -87,6 +97,7 @@ class AutoController extends Controller
      */
     public function destroy(Auto $auto)
     {
-        //
+        $auto->delete();
+        return response(redirect('/auto'));
     }
 }

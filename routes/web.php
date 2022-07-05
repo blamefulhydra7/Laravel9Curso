@@ -19,10 +19,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('auto', AutoController::class);
+Route::resource('auto', AutoController::class)->middleware('auth');
 
-Route::resource('persona', PersonaController::class);
+Route::resource('persona', PersonaController::class)->middleware('auth');
 
 Route::fallback(function () {
    return redirect('/');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
