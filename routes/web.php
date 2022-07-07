@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\PersonaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutoController;
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Route::resource('auto', AutoController::class)->middleware('auth');
 
 Route::resource('persona', PersonaController::class)->middleware('auth');
+
+Route::resource('estudiante', EstudianteController::class)->middleware('guest');
 
 Route::fallback(function () {
    return redirect('/');

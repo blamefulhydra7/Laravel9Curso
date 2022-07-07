@@ -24,11 +24,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/persona')}}">Personas</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/estudiante')}}">Estudiantes</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-        <div style="padding: 10rem">
+        <div style="padding: 5rem">
             @yield('content')
         </div>
         <!-- JavaScript Bundle with Popper -->

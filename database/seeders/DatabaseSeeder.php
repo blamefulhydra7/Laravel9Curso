@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
          $this->call([
              AutoSeeder::class,
              UserSeeder::class,
-             PersonaSeeder::class
+             PersonaSeeder::class,
+             EstudianteSeeder::class
          ]);
     }
 }

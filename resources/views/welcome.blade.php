@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/persona')}}">Personas</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/estudiante')}}">Estudiantes</a>
+                        </li>
                     </ul>
                 </div>
             </div>
